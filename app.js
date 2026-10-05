@@ -6,7 +6,7 @@ function setLanguage(language, updateURL=false){
  const en=language==='en'; document.documentElement.lang=en?'en':'sl';
  document.querySelectorAll('[data-si]').forEach(element=>{element.textContent=element.dataset[en?'en':'si'];});
  languageLinks.forEach(link=>{link.setAttribute('aria-current',String(link.dataset.language===language));link.href=`?lang=${link.dataset.language}${location.hash}`;});
- document.querySelector('meta[name="description"]').content=en?'Groovocado — nine musicians playing soul, funk, disco, pop and rock’n’roll. Videos, bookings and press materials.':'Groovocado — 9 glasbenikov, soul, funk, disco, pop in rokenrol. Video, kontakt in gradivo za medije.';
+ document.querySelector('meta[name="description"]').content=en?'Groovocado — nine musicians playing soul, funk, disco and pop! Videos, bookings and press materials.':'Groovocado — 9 glasbenikov, soul, funk, disco in pop! Video, kontakt in gradivo za medije.';
  if(updateURL){const url=new URL(location.href);url.searchParams.set('lang',language);history.replaceState({},'',url);}
 }
 languageLinks.forEach(link=>link.addEventListener('click',event=>{event.preventDefault();setLanguage(link.dataset.language,true);}));
